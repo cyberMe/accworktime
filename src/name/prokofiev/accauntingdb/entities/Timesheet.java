@@ -20,7 +20,7 @@ public class Timesheet {
 	 */
 	@ManyToOne
 	@JoinColumn(name="employeeId")
-	public Employee employeeId;
+	private Employee employeeId;
 	
 	/**
 	 * Статус: принят или отклонен менеджером
@@ -75,5 +75,13 @@ public class Timesheet {
 		minutesFri = 0;
 		minutesSat = 0;
 		minutesSun = 0;
+	}
+
+	public Employee getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Employee employeeId) {
+		this.employeeId = employeeId;
 	}
 }

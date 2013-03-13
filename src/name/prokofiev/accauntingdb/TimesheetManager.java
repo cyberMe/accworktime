@@ -46,7 +46,7 @@ public class TimesheetManager {
 	 */
 	public Timesheet createForEmployee(Employee emp) {
 		Timesheet ts = new Timesheet();
-		ts.employeeId = emp;
+		ts.setEmployeeId(emp);
 		return ts;
 	}
 	
