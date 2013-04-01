@@ -1,18 +1,18 @@
-/**
- * @author prokofiev_aa
+/*
+ * author: prokofiev_aa
  */
 package name.prokofiev.accauntingdb;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-
 import name.prokofiev.accauntingdb.entities.Employee;
 
 /**
  * Управляет доступом к объектам employee
  */
 public class EmployeeManager {
+
 	/**
 	 * Выполняет поиск Employee
 	 * @param ses сессия
@@ -22,6 +22,7 @@ public class EmployeeManager {
 	 */
 	public Employee findEmployee(Session ses, Integer id, String password) {
 		Employee ret = null;
+	
 		try {
 			ses.beginTransaction();
 			ret = (Employee) ses.createCriteria(Employee.class)
@@ -31,7 +32,7 @@ public class EmployeeManager {
 					.uniqueResult();
 			ses.getTransaction().commit();
 		} catch(HibernateException ex) {
-			if(ses.getTransaction().isActive()){
+			if (ses.getTransaction().isActive()) {
 				ses.getTransaction().rollback();
 			}
 		}

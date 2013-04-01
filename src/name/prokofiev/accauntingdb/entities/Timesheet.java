@@ -1,7 +1,6 @@
-/**
- * @author prokofiev_aa
+/*
+ * author prokofiev_aa
  */
-
 package name.prokofiev.accauntingdb.entities;
 
 import java.util.*;
@@ -12,12 +11,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Timesheet {
+	
+	/** идентификатор ведомости*/
 	@Id @GeneratedValue
 	private Integer timesheetId;
 	
-	/**
-	 * Владелец табеля
-	 */
+	/** Владелец табеля*/
 	@ManyToOne
 	@JoinColumn(name="employeeId")
 	private Employee employeeId;
@@ -30,9 +29,7 @@ public class Timesheet {
 	@Column(length = 1)
 	public String statusCode;
 	
-	/**
-	 * Связанное подразделение
-	 */
+	/** Связанное подразделение*/
 	@ManyToOne
 	@JoinColumn(name="departmentCode")
 	public Department departmentCode;
@@ -43,28 +40,28 @@ public class Timesheet {
 	@Column
 	public Date periodEndingDate;
 	
-	/**
+	/*
 	 * потраченное время в минутах
 	 */
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesMon;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesTue;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesWed;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesThu;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesFri;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesSat;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Integer minutesSun;
 	
 	public Timesheet() {

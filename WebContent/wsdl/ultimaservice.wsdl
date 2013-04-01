@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UltimaServiceService" targetNamespace="http://accauntingservice.prokofiev.name/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://accauntingservice.prokofiev.name/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://accauntingservice.prokofiev.name/" schemaLocation="ultimaservice_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="setTimeSheet">
+    <wsdl:part name="parameters" element="tns:setTimeSheet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartmentResponse">
+    <wsdl:part name="parameters" element="tns:getAllDepartmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNextVal">
+    <wsdl:part name="parameters" element="tns:getNextVal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartment">
+    <wsdl:part name="parameters" element="tns:getAllDepartment">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNextValResponse">
+    <wsdl:part name="parameters" element="tns:getNextValResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setTimeSheetResponse">
+    <wsdl:part name="parameters" element="tns:setTimeSheetResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Ultima">
+    <wsdl:operation name="getAllDepartment">
+      <wsdl:input name="getAllDepartment" message="tns:getAllDepartment">
+    </wsdl:input>
+      <wsdl:output name="getAllDepartmentResponse" message="tns:getAllDepartmentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTimeSheet">
+      <wsdl:input name="setTimeSheet" message="tns:setTimeSheet">
+    </wsdl:input>
+      <wsdl:output name="setTimeSheetResponse" message="tns:setTimeSheetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextVal">
+      <wsdl:input name="getNextVal" message="tns:getNextVal">
+    </wsdl:input>
+      <wsdl:output name="getNextValResponse" message="tns:getNextValResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UltimaServiceServiceSoapBinding" type="tns:Ultima">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllDepartment">
+      <soap12:operation soapAction="urn:GetAllDepartment" style="document"/>
+      <wsdl:input name="getAllDepartment">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllDepartmentResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTimeSheet">
+      <soap12:operation soapAction="urn:SetTimeSheet" style="document"/>
+      <wsdl:input name="setTimeSheet">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setTimeSheetResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextVal">
+      <soap12:operation soapAction="urn:GetNextVal" style="document"/>
+      <wsdl:input name="getNextVal">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNextValResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UltimaServiceService">
+    <wsdl:port name="UltimaServicePort" binding="tns:UltimaServiceServiceSoapBinding">
+      <soap12:address location="http://localhost:8080/UltimaServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

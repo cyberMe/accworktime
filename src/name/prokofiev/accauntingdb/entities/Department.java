@@ -1,7 +1,6 @@
-/**
- * @author prokofiev_aa
+/*
+ * author prokofiev_aa
  */
-
 package name.prokofiev.accauntingdb.entities;
 
 import javax.persistence.*;
@@ -11,15 +10,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Department {
-	/**
-	 * Код подразделения
-	 */
+
+	/** Код подразделения */
 	@Id @Column(length=2)
 	private String departmentCode;
 	
-	/**
-	 * Наименование подразделения
-	 */
+	/** Наименование подразделения */
 	@Column(length = 255, nullable = false)
 	private String name;
 
@@ -37,6 +33,5 @@ public class Department {
 
 	public String getName() {
 		return name;
-	}
-	
+	}	
 }

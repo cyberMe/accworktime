@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:tns="http://accauntingservice.prokofiev.name/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://accauntingservice.prokofiev.name/" version="1.0">
+<xs:element name="allDepartment" type="tns:allDepartment"/>
+<xs:element name="getAllDepartment" type="tns:getAllDepartment"/>
+<xs:element name="getAllDepartmentResponse" type="tns:getAllDepartmentResponse"/>
+<xs:element name="getNextVal" type="tns:getNextVal"/>
+<xs:element name="getNextValResponse" type="tns:getNextValResponse"/>
+<xs:element name="setTimeSheet" type="tns:setTimeSheet"/>
+<xs:element name="setTimeSheetResponse" type="tns:setTimeSheetResponse"/>
+<xs:element name="timeSheet" type="tns:timeSheet"/>
+<xs:complexType name="getAllDepartment">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getAllDepartmentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:allDepartment"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="allDepartment">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="departmetns" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setTimeSheet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:timeSheet"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="timeSheet">
+    <xs:sequence>
+      <xs:element name="tsId" type="xs:long"/>
+      <xs:element minOccurs="0" name="departmentCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setTimeSheetResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:TSResult"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="TSResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNextVal">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getNextValResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

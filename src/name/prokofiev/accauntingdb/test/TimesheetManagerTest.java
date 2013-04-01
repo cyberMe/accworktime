@@ -1,5 +1,5 @@
-/**
- * @author prokofiev_aa
+/*
+ * author prokofiev_aa
  */
 
 package name.prokofiev.accauntingdb.test;
@@ -25,7 +25,6 @@ import org.junit.Test;
 
 /**
  * Проверки работы с управляющими классами
- *
  */
 public class TimesheetManagerTest {
 
@@ -33,7 +32,7 @@ public class TimesheetManagerTest {
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() throws Exception {
-		sf = new  Configuration().configure().buildSessionFactory();
+		sf = new Configuration().configure().buildSessionFactory();
 	}
 
 	@After

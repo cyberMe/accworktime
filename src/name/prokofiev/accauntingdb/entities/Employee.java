@@ -1,7 +1,6 @@
-/**
- * @author prokofiev_aa
+/*
+ * author prokofiev_aa
  */
-
 package name.prokofiev.accauntingdb.entities;
 
 import javax.persistence.*;
@@ -11,36 +10,27 @@ import javax.persistence.*;
  */
 @Entity
 public class Employee {
-	/**
-	 * Идентификатор
-	 */
+
+	/** Идентификатор */
 	@Id @GeneratedValue
 	private Integer employeeId;
 	
-	/**
-	 * Имя
-	 */
+	/** Имя */
 	@Column(length = 100, nullable=false) 
 	private String name;
 	
-	/**
-	 * Код сотрудника
-	 */
+	/** Код сотрудника */
 	@Column(length = 1)
 	private String employeeCode;
 	
-	/**
-	 * Пароль
-	 */
+	/** Пароль */
 	@Column(length = 10, nullable=false)
 	private String password;
 
 	@Column
 	private Integer managerEmployeeId;
 	
-	/**
-	 * Почта
-	 */
+	/** Почта */
 	@Column(length = 255)
 	private String email;
 
@@ -67,6 +57,4 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 }

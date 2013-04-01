@@ -1,7 +1,6 @@
-/**
- * @author prokofiev_aa
+/*
+ * author: prokofiev_aa
  */
-
 package name.prokofiev.accauntingdb;
 
 import java.util.*;
@@ -17,6 +16,7 @@ import name.prokofiev.accauntingdb.entities.Timesheet;
  * Управляет доступам к сущностям Табель
  */
 public class TimesheetManager {
+	
 	/**
 	 * Загружает сущность Табель по идентификатору
 	 * @param ses сессия
@@ -25,14 +25,15 @@ public class TimesheetManager {
 	 */
 	public Timesheet loadById(Session ses, Integer id) {
 		Timesheet ret = null;
-		try{
+
+		try {
 			ses.beginTransaction();
-			ret = (Timesheet)ses.createCriteria(Timesheet.class)
+			ret = (Timesheet) ses.createCriteria(Timesheet.class)
 					.add(Restrictions.eq("timesheetId", id))
 					.uniqueResult();
 			ses.getTransaction().commit();
 		} catch(HibernateException ex) {
-			if(ses.getTransaction().isActive()) {
+			if (ses.getTransaction().isActive()) {
 				ses.getTransaction().rollback();
 			}
 		}
@@ -46,6 +47,7 @@ public class TimesheetManager {
 	 */
 	public Timesheet createForEmployee(Employee emp) {
 		Timesheet ts = new Timesheet();
+		
 		ts.setEmployeeId(emp);
 		return ts;
 	}
@@ -62,7 +64,7 @@ public class TimesheetManager {
 			ses.saveOrUpdate(ts);
 			ses.getTransaction().commit();
 		} catch(HibernateException ex) {
-			if(ses.getTransaction().isActive()) {
+			if (ses.getTransaction().isActive()) {
 				ses.getTransaction().rollback();
 			}
 		}
@@ -77,14 +79,15 @@ public class TimesheetManager {
 	@SuppressWarnings("unchecked")
 	public List<Timesheet> findForEmployee(Session ses, Employee emp) {
 		List<Timesheet> ret = null;
-		try{
+		
+		try {
 			ses.beginTransaction();
-			ret = (List<Timesheet>)ses.createCriteria(Timesheet.class)
+			ret = (List<Timesheet>) ses.createCriteria(Timesheet.class)
 					.add(Restrictions.eq("employeeId", emp))
 					.list();
 			ses.getTransaction().commit();
 		} catch(HibernateException ex) {
-			if(ses.getTransaction().isActive()) {
+			if (ses.getTransaction().isActive()) {
 				ses.getTransaction().rollback();
 			}
 		}
